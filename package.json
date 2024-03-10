@@ -1,7 +1,7 @@
 {
   "name": "film-registration--",
   "version": "1.0.0",
-  "description": "",
+  "description": "application for registering a film developed in Node Js, a challenge proposed by Rocketseat.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
