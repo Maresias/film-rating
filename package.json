@@ -4,7 +4,7 @@
   "description": "application for registering a film developed in Node Js, a challenge proposed by Rocketseat.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/server.js"
   },
   "author": "Alexandre RC",
   "license": "ISC",
