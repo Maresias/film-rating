@@ -3,7 +3,7 @@ const { Router } = require("express")
 const userRouters = Router()
 
 
-userRouters.post("/users", (request, response) => {
+userRouters.post("/", (request, response) => {
 
 })
 
