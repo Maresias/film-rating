@@ -6,7 +6,7 @@ const userRouters = Router()
 const usersController = new UsersController()
 
 
-userRouters.post("/", usersController)
+userRouters.post("/", usersController.create)
 
 
 module.exports = userRouters
