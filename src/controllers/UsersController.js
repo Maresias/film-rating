@@ -1,1 +1,6 @@
-class Use
+class UsersController {
+
+}
+
+
+module.exports = UsersController
