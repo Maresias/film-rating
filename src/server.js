@@ -1,4 +1,4 @@
-
+require("express-async-errors")
 
 const AppError = require("./Utils/AppError")
 const express = require("express")
@@ -18,7 +18,10 @@ app.use((error, request, response, next)=>{
         })
     }
 
-    retu
+    return response.status(500).json({
+        status: "error",
+        message: "Internal server error"
+    })
 })
 
 const PORT = 3333
