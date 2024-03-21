@@ -14,7 +14,7 @@ class UsersController {
             throw new AppError("Este e-mail já está em uso. ")
         }
 
-        const hashedPassword = hash(password, 8)
+        const hashedPassword = await  hash(password, 8)
 
         await database.run(
             "INSERT INTO users (name, email, password) VALUES (?, ?, ? )",
@@ -23,6 +23,8 @@ class UsersController {
 
         return response.status(201).json()
     }
+
+
 }
 
 
