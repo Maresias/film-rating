@@ -53,6 +53,8 @@ class UsersController {
             [user.name, user.email, user.password, new Date(), id]
         )
 
+        return response.json()
+
     }
 }
 
