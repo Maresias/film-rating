@@ -28,7 +28,9 @@ class UsersController {
         const {name, email, password } = request.body
         const {id} = request.params
 
-        const database = await database.get("SELECT * FROM users WHERE id = (?)", [id])
+
+        const database = await sqliteConnection()
+        const user = await database.get("SELECT * FROM users WHERE id = (?)", [id])
 
         if(!user){
             throw new AppError("Usuário não encontrado")
@@ -36,7 +38,7 @@ class UsersController {
 
         const userWithUpdateEmail = await database.get("SELECT * FROM users WHERE email = (?)", [email])
 
-        if(userWithUpdateEmail && userWithUpdateEmail.id !== id){
+        if(userWithUpdateEmail && userWithUpdateEmail.id !== user.id){
             throw new AppError("Este e-mail já está em uso. ")
         }
 
@@ -46,10 +48,11 @@ class UsersController {
 
         await database.run(
             `UPDATE users SET
-            name = ?,
-            email = ?,
-            password = ?,
-            updated_at = ?`,
+             name = ?,
+             email = ?,
+             password = ?,
+             updated_at = ?
+             WHERE id = ?`,
             [user.name, user.email, user.password, new Date(), id]
         )
 
