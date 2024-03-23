@@ -46,6 +46,10 @@ class UsersController {
         user.email = email
         user.password = await hash(password, 8)
 
+        if (password && !old_password){
+            throw new AppError("Você precisa informar a senha antiga para definir a nova senha. ")
+        }
+
         await database.run(
             `UPDATE users SET
              name = ?,
