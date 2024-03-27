@@ -9,5 +9,9 @@ class MovieController {
         await database.run(
             "INSERT INTO movie (title, description) VALUES ( ?, ?)", [title, description]
         )
+
+        return response.status(201).json()
     }
 }
+
+module.exports = MovieController
