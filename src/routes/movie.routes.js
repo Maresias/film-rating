@@ -6,6 +6,6 @@ const MovieController = require("../controllers/MovieController")
 const movieRoutes = Router()
 const movieController = new MovieController()
 
-movieRoutes.use("/", movieController.create)
+movieRoutes.post("/", movieController.create)
 
 module.exports = movieRoutes

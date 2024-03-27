@@ -4,7 +4,7 @@ class MovieController {
     async create(request, response){
         const { title, description } = request.body
 
-        const database = sqliteConnection()
+        const database = await sqliteConnection()
 
         await database.run(
             "INSERT INTO movie (title, description) VALUES ( ?, ?)", [title, description]
