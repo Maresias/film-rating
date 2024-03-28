@@ -26,3 +26,5 @@ class NotesController {
         response.json()
     }
 }
+
+module.exports = NotesController
