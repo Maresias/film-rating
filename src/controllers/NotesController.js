@@ -37,6 +37,10 @@ class NotesController {
             tags
         })
     }
+
+    async delete(request, response){
+        
+    }
 }
 
 module.exports = NotesController
