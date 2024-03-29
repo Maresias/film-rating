@@ -39,7 +39,11 @@ class NotesController {
     }
 
     async delete(request, response){
-        
+        const { id } = request.params
+
+        await knex("notes").where({id}).delete()
+
+        return response.json()
     }
 }
 
