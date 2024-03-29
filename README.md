@@ -3,7 +3,7 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Diagram">Diagram</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -14,29 +14,24 @@
 <br>
 
 <p align="center">
-  <img alt="projeto DevLinks" src="./drawSQL.png" width="100%">
+  <img alt="Film registration" src="./drawSQL.png" width="90%">
 </p>
 
 ## 🚀 Tecnologias
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+This project was developed with technologies:
 
-- HTML e CSS
-- JavaScript
+- Node.JS
+- Insomnia
 - Git e Github
-- Figma
 
 ## 💻 Projeto
 
-O DevLinks é um agregador de links para usar como cartão de visitas online.
+the user can register a film, fill in some information (name, description and rating) and create tags related to it..
 
-- [Acesse o projeto finalizado, online](https://maykbrito.github.io/devlinks)
+## 🔖 Diagram
 
-- [Assistir aulas](https://lp.rocketseat.com.br/devlinks/inscricao?utm_source=github&utm_medium=descricao&utm_campaign=capture-devlinks&utm_term=organic&utm_content=descricao-github-mayk-brito)
-
-## 🔖 Layout
-
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1187422022288947321). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+You can view this diagram through [LINK](https://drawsql.app/teams/maresias/diagrams/film-registration).
 
 ## :memo: Licença
 
