@@ -8,6 +8,17 @@ class NotesController {
 
         const filmWasRated = await knex("notes").where({user_id: user_id} && {movie_id: movie_id})
 
+        if(tags.length === 0 || rating.length === 0){
+            throw new AppError("E Necessário 1 Tag e uma Nota")
+        }
+
+        const ratingInt = parseInt(rating)
+
+
+        if(ratingInt > 5 || ratingInt < 1){
+            throw new AppError("A nota no filme deve está entre 1 e 5")
+        }
+
         if(filmWasRated.length !== 0){
             throw new AppError("Filme já avaliado pelo úsuario, caso queira você pode atualizar sua nota")
         }
