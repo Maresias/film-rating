@@ -27,7 +27,7 @@ This project was developed with technologies:
 
 ## 💻 Projeto
 
-the user can register a film, fill in some information (name, description and rating) and create tags related to it..
+In this project the user will be able to rate the film and add tags
 
 ## 🔖 Diagram
 
@@ -35,7 +35,7 @@ You can view this diagram through [LINK](https://drawsql.app/teams/maresias/diag
 
 ## :memo: Licença
 
-Esse projeto está sob a licença MIT.
+This project is under the MIT license.
 
 ---
 
