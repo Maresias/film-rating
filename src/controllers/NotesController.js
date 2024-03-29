@@ -47,6 +47,7 @@ class NotesController {
 
     async update(request, response){
         const { user_id, note_id } = request.params
+        const { rating, tags } = request.body
 
         const note = await knex("notes").where({id:note_id}).where({user_id:user_id})
 
@@ -54,7 +55,8 @@ class NotesController {
             throw new AppError("Nota não encontrada")
         }
 
-        response.json(note)
+        await note.update({rating: knex.raw(rating)})
+
 
     }
 
