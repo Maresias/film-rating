@@ -6,6 +6,13 @@ class NotesController {
         const { rating, tags } = request.body
         const { user_id, movie_id } = request.params
 
+        const filmWasRated = await knex("notes").where({user_id: user_id} && {movie_id: movie_id})
+
+        if(filmWasRated.length !== 0){
+            throw new AppError("Filme já avaliado pelo úsuario, caso queira você pode atualizar sua nota")
+        }
+
+
         const [note_id] = await knex("notes").insert({
             rating,
             user_id,
@@ -37,6 +44,7 @@ class NotesController {
             ...note,
             tags
         })
+
     }
 
     async delete(request, response){
@@ -46,6 +54,7 @@ class NotesController {
 
         return response.json()
     }
+
 }
 
 module.exports = NotesController
