@@ -6,6 +6,7 @@ const notesRoutes = Router()
 
 const notesController = new NotesController()
 
-notesRoutes.use("/:user_id/:movie_id", notesController.create)
+notesRoutes.post("/:user_id/:movie_id", notesController.create)
+notesRoutes.get("/:id", notesController.show)
 
 module.exports = notesRoutes
