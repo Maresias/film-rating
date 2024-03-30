@@ -55,7 +55,8 @@ class NotesController {
             throw new AppError("Nota não encontrada")
         }
 
-        await note.update({rating: knex.raw(rating)})
+        await knex("notes").where({id:note_id}).update({rating: rating})
+
 
 
     }
