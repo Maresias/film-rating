@@ -7,7 +7,7 @@ class NotesController {
         const { user_id, movie_id } = request.params
 
         const filmWasRated = await knex("notes").where({user_id: user_id} && {movie_id: movie_id})
-        
+
         if(filmWasRated.length !== 0){
             throw new AppError("Filme já avaliado pelo úsuario, caso queira você pode atualizar sua nota")
         }
@@ -56,7 +56,7 @@ class NotesController {
             throw new AppError("Nota não encontrada")
         }
 
-        await knex("notes").where({id:note_id}).update({rating: rating})
+       await knex("notes").where({id:note_id}).update({rating: rating})
 
         response.json()
     }
