@@ -56,6 +56,14 @@ class NotesController {
             throw new AppError("Nota não encontrada")
         }
 
+        const ratingInt = parseInt(rating)
+
+
+        if(ratingInt > 5 || ratingInt < 1){
+            throw new AppError("A nota no filme deve está entre 1 e 5")
+        }
+
+
        await knex("notes").where({id:note_id}).update({rating: rating})
 
         response.json()
