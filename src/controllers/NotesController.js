@@ -57,8 +57,7 @@ class NotesController {
 
         await knex("notes").where({id:note_id}).update({rating: rating})
 
-
-
+        response.json()
     }
 
     async show(request, response){
