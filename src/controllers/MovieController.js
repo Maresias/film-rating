@@ -12,6 +12,10 @@ class MovieController {
 
         return response.status(201).json()
     }
+
+    async show(request, response){
+
+    }
 }
 
 module.exports = MovieController
