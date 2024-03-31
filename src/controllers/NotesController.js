@@ -6,7 +6,11 @@ class NotesController {
         const { rating, tags } = request.body
         const { user_id, movie_id } = request.params
 
-        const filmWasRated = await knex("notes").where({user_id: user_id} && {movie_id: movie_id})
+        const filmWasRated = await knex("notes").where({user_id: user_id}).where({movie_id:movie_id})
+
+        console.log(user_id)
+
+        console.log(filmWasRated)
 
         if(filmWasRated.length !== 0){
             throw new AppError("Filme já avaliado pelo úsuario, caso queira você pode atualizar sua nota")
