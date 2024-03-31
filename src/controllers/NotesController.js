@@ -52,19 +52,24 @@ class NotesController {
 
         const note = await knex("notes").where({id:note_id}).where({user_id:user_id})
 
+        
         if(!note.length){
             throw new AppError("Nota não encontrada")
         }
 
+        
         const ratingInt = parseInt(rating)
-
-
+        
+        
         if(ratingInt > 5 || ratingInt < 1){
             throw new AppError("A nota no filme deve está entre 1 e 5")
         }
 
+        const  movie_id = note[0].movie_id
+        
 
-       await knex("notes").where({id:note_id}).update({rating: rating})
+
+        await knex("notes").where({id:note_id}).update({rating: rating})
 
         response.json()
     }
