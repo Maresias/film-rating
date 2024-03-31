@@ -1,3 +1,4 @@
+const { raw } = require("express")
 const knex = require("../database/knex")
 const AppError = require("../Utils/AppError")
 
@@ -63,7 +64,11 @@ class NotesController {
             throw new AppError("A nota no filme deve está entre 1 e 5")
         }
 
-        await knex("notes").where({id:note_id}).update({rating: rating , updated_:DATETIME(now)})
+        await knex("notes").where({id:note_id}).update({rating: rating, updated_:knex.raw(`DATETIME('now')`)}).then(data =>{
+            console.log(data)
+        }).catch(err =>{
+            console.log(err)
+        })
 
 
         response.json()
