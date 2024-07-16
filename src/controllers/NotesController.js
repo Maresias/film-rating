@@ -49,8 +49,9 @@ class NotesController {
     }
 
     async update(request, response){
-        const { user_id, note_id } = request.params
+        const { note_id } = request.params
         const { rating } = request.body
+        const user_id = request.user.id
 
         const note = await knex("notes").where({id:note_id}).where({user_id:user_id})
 
