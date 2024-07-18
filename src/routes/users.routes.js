@@ -15,7 +15,7 @@ const usersController = new UsersController()
 
 userRouters.post("/", usersController.create)
 userRouters.put("/", ensureAuthenticated, usersController.update)
-userRouters.patch("/avater", ensureAuthenticated, upload.single("avatar"), (request, response) => {
+userRouters.patch("/avatar", ensureAuthenticated, upload.single("avatar"), (request, response) => {
     console.log(request.file.filename)
     response.json()
 })
