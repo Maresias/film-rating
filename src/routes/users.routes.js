@@ -20,6 +20,4 @@ userRouters.put("/", ensureAuthenticated, usersController.update)
 userRouters.patch("/avatar", ensureAuthenticated, upload.single("avatar"), userAvatarController.update)
 
 
-
-
 module.exports = userRouters
