@@ -12,5 +12,4 @@ routes.use("/movie", movieRouter)
 routes.use("/notes", notesRouter)
 routes.use("/sessions", sessionsRoutes)
 
-
 module.exports = routes
