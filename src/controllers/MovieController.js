@@ -21,7 +21,6 @@ class MovieController {
         const rating = await knex("notes").where({movie_id:id})
         const tags = await knex("tags").where({movie_id:id})
 
-
         return response.json({
             ...movie,
             rating,
