@@ -14,6 +14,13 @@ class MovieController {
         return response.status(201).json()
     }
 
+    async movies(request, response){
+        const { title } = request.body
+        const movie = knex(movie).where({title:title})
+
+        return response.json(movie)
+    }
+
     async show(request, response){
         const { id } = request.params
 
