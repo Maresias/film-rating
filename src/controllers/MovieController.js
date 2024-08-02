@@ -14,9 +14,10 @@ class MovieController {
         return response.status(201).json()
     }
 
-    async movies(request, response){
+    async index(request, response){
         const { title } = request.body
-        const movie = knex(movie).where({title:title})
+        const [movie ] = await knex("movie").whereLike({title: title})
+
 
         return response.json(movie)
     }

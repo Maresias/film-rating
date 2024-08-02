@@ -8,5 +8,6 @@ const movieController = new MovieController()
 
 movieRoutes.post("/", movieController.create)
 movieRoutes.get("/:id", movieController.show)
+movieRoutes.get("/", movieController.index)
 
 module.exports = movieRoutes
