@@ -15,8 +15,8 @@ class MovieController {
     }
 
     async index(request, response){
-        const { title } = request.body
-        const [movie ] = await knex("movie").whereLike({title: title})
+        const { name } = request.body
+        const [movie] = await knex.select('id', 'title').from('movie').whereLike("title",`%${name}%`)
 
 
         return response.json(movie)
