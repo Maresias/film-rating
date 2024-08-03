@@ -4,7 +4,6 @@ const AppError = require("../Utils/AppError")
 class NotesController {
     async create(request, response){
         const { rating, tags, movie_id } = request.body
-       // const { movie_id } = request.params
         const user_id = request.user.id
 
         const filmWasRated = await knex("notes").where({user_id: user_id}).where({movie_id:movie_id})
