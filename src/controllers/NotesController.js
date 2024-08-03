@@ -10,7 +10,7 @@ class NotesController {
         const filmWasRated = await knex("notes").where({user_id: user_id}).where({movie_id:movie_id})
 
         if(filmWasRated.length !== 0){
-            throw new AppError("Filme já avaliado pelo úsuario, caso queira você pode atualizar sua nota")
+            alert("Esse Filme já foi avaliado, caso continue você estára atualizando nota")
         }
 
         if(tags.length === 0 || rating.length === 0){
