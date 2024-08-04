@@ -75,15 +75,12 @@ class NotesController {
     async show(request, response){
         const user_id  = request.user.id
         console.log(user_id)
-        const note = await knex("notes").where({user_id})
-        return response.json({
-            note
-        })
+        const notes = await knex("notes").where({user_id})
 
     }
 
     async delete(request, response){
-        const { id } = request.params
+        const { id } = request.user.id
 
         await knex("notes").where({id}).delete()
 
