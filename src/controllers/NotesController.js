@@ -73,14 +73,11 @@ class NotesController {
     }
 
     async show(request, response){
-        const { id } = request.user.id
-
-        const note = await knex("notes").where({id}).first()
-        const tags = await knex("tags").where({note_id: id}).orderBy("name")
-
+        const user_id  = request.user.id
+        console.log(user_id)
+        const note = await knex("notes").where({user_id})
         return response.json({
-            ...note,
-            tags
+            note
         })
 
     }
