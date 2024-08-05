@@ -79,7 +79,8 @@ class NotesController {
 
     async index(request, response){
         const user_id = request.user.id
-        const notes = await knex("notes").where({user_id})
+        const notes = await knex("notes")
+        .where({user_id})
 
         return response.json(notes)
     }
