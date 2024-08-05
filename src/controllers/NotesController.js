@@ -79,10 +79,11 @@ class NotesController {
 
     async index(request, response){
         const user_id = request.user.id
-        const notes = await knex("notes")
+        const notes  = await knex("notes")
         .where({user_id})
+        .join('movie', 'notes.movie_id', '=', 'movie.id')
 
-        return response.json(notes)
+        return response.json(notesWithTags)
     }
 
     async delete(request, response){
