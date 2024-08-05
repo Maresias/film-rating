@@ -74,8 +74,7 @@ class NotesController {
 
     async show(request, response){
         const user_id  = request.user.id
-        console.log(user_id)
-        const notes = await knex("notes").where({user_id})
+
 
     }
 
