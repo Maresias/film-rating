@@ -83,7 +83,12 @@ class NotesController {
         .where({user_id})
         .join('movie', 'notes.movie_id', '=', 'movie.id')
 
-        return response.json(notesWithTags)
+        const userTags = await knex("tags").where({user_id})
+
+        const notesWithTags = notes.map( note => {
+            const userTags = 
+        })
+        return response.json(userTags)
     }
 
     async delete(request, response){
