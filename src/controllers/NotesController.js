@@ -86,9 +86,14 @@ class NotesController {
         const userTags = await knex("tags").where({user_id})
 
         const notesWithTags = notes.map( note => {
-            const userTags = 
+            const noteTags =  userTags.filter( tag => tag.note_id === note.id)
+
+            return {
+                ...note,
+                tag:noteTags
+            }
         })
-        return response.json(userTags)
+        return response.json(notesWithTags)
     }
 
     async delete(request, response){
