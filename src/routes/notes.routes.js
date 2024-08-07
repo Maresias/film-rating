@@ -10,7 +10,7 @@ notesRoutes.use(ensureAuthenticated)
 
 notesRoutes.post("/", notesController.create)
 notesRoutes.get("/", notesController.index)
-notesRoutes.get("/movie_id", notesController.show)
+notesRoutes.get("/id", notesController.show)
 notesRoutes.delete("/:id", notesController.delete)
 notesRoutes.put("/:note_id", notesController.update)
 
