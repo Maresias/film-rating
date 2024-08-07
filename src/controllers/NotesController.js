@@ -74,7 +74,9 @@ class NotesController {
 
     async show(request, response){
         const { id }  = request.params
-        return response.json(`Esse foi o ai que chegou aqui ${id}`)
+        const note = await knex("notes").where({id})
+
+        return response.json("ola")
     }
 
     async index(request, response){
