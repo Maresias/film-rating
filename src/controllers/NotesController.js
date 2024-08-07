@@ -73,8 +73,8 @@ class NotesController {
     }
 
     async show(request, response){
-        const user_id  = request.user.id
-
+        const { id }  = request.params
+        return response.json(`Esse foi o ai que chegou aqui ${id}`)
     }
 
     async index(request, response){
