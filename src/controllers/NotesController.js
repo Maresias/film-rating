@@ -74,9 +74,11 @@ class NotesController {
 
     async show(request, response){
         const { id }  = request.params
-        const note = await knex("notes")
+        let note = null
+         note = await knex("notes")
         .join('movie', 'notes.movie_id', '=', 'movie.id')
         .where('notes.id',id)
+        .where('notes.user_id', 3)
 
         
         return response.json(note)
@@ -98,6 +100,7 @@ class NotesController {
                 tag:noteTags
             }
         })
+        console.log(notesWithTags)
         return response.json(notesWithTags)
     }
 
