@@ -7,7 +7,7 @@ class MovieController {
         const { title, description } = request.body
 
         if(!title || !description){
-            return new AppError("Os campos Titulo e Descrição não podem está vazios")
+            throw new AppError("Os campos Titulo e Descrição não podem está vazios")
         }
 
         const database = await sqliteConnection()
