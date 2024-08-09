@@ -81,10 +81,12 @@ class NotesController {
 
         const noteTag = await knex("tags").where('tags.note_id', id)
 
-        const noteWithTag = {
-            dado:note,
-            tag:noteTag
-        }
+        const noteWithTag = note.map( notes => {
+            return {
+                ...notes,
+                tag:noteTag
+            }
+        })
         
         return response.json(noteWithTag)
     }
