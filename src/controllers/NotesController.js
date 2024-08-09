@@ -89,7 +89,7 @@ class NotesController {
 
     async index(request, response){
         const user_id = request.user.id
-        const notes  = await knex("notes").select(['notes.id', 'rating', 'notes.movie_id'])
+        const notes  = await knex("notes").select(['notes.id', 'rating', 'notes.movie_id', 'movie.title'])
         .where('notes.user_id', user_id)
         .join('movie', 'notes.movie_id', '=', 'movie.id')
 
