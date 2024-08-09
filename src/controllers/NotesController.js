@@ -78,8 +78,15 @@ class NotesController {
         const note = await knex("notes").select(['notes.id', 'notes.rating', 'movie.title', 'movie.description', 'notes.updated_'])
         .where('notes.id',id)
         .join('movie', 'notes.movie_id', '=', 'movie.id')
+
+        const noteTag = await knex("tags").where('tags.note_id', id)
+
+        const noteWithTag = {
+            dado:note,
+            tag:noteTag
+        }
         
-        return response.json(note)
+        return response.json(noteWithTag)
     }
 
     async index(request, response){
