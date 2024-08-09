@@ -1,9 +1,14 @@
 const knex = require("../database/knex")
 const sqliteConnection = require("../database/sqlite")
+const AppError = require("../Utils/AppError")
 
 class MovieController {
     async create(request, response){
         const { title, description } = request.body
+
+        if(!title || !description){
+            return new AppError("Os campos Titulo e Descrição não podem está vazios")
+        }
 
         const database = await sqliteConnection()
 
