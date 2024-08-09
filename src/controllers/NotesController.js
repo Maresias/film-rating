@@ -74,17 +74,12 @@ class NotesController {
 
     async show(request, response){
         const { id }  = request.params
-        const user_id = request.user.id
 
-        const notes = await knex("notes").where({user_id})
-
-        // note = await knex("notes").select(['notes.id']).where('notes.id',id)
-        //.join('movie', 'notes.movie_id', '=', 'movie.id')
-       
+        const note = await knex("notes").select(['notes.id', 'notes.rating', 'movie.title', 'movie.description', 'notes.updated_'])
+        .where('notes.id',id)
+        .join('movie', 'notes.movie_id', '=', 'movie.id')
         
-
-        
-        return response.json(notes)
+        return response.json(note)
     }
 
     async index(request, response){
@@ -103,7 +98,6 @@ class NotesController {
                 tag:noteTags
             }
         })
-        console.log(notesWithTags)
         return response.json(notesWithTags)
     }
 
