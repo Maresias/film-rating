@@ -1,4 +1,4 @@
-require("dotenv/config.js")
+require("dotenv/config")
 require("express-async-errors")
 
 const migrationsRun = require("./database/sqlite/migrations")
