@@ -62,11 +62,7 @@ class NotesController {
             throw new AppError("A nota no filme deve está entre 1 e 5")
         }
 
-        await knex("notes").where({id:note_id}).update({rating: rating, updated_:knex.raw(`DATETIME('now')`)}).then(data =>{
-            console.log(data)
-        }).catch(err =>{
-            console.log(err)
-        })
+        await knex("notes").where({id:note_id}).update({rating: rating, updated_:knex.raw(`DATETIME('now')`)})
 
 
         response.json()
