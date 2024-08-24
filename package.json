@@ -2,7 +2,7 @@
   "name": "film-registration--",
   "version": "1.0.0",
   "description": "application for registering a film developed in Node Js, a challenge proposed by Rocketseat.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "nodemon ./src/server.js",
